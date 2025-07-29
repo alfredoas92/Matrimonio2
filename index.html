@@ -28,7 +28,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://drive.google.com/file/d/1soXf_fXhm6WArB1mshDr5PszVhacoZrR/view?usp=sharing');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -36,13 +36,13 @@
 
         .hero-content h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 6em;
+            font-size: 6em; /* Tamaño para pantallas grandes */
             margin: 0;
             font-weight: 700;
         }
 
         .hero-content p {
-            font-size: 1.5em;
+            font-size: 1.5em; /* Tamaño para pantallas grandes */
             margin-top: 10px;
         }
 
@@ -56,7 +56,7 @@
 
         .section h2 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5em;
+            font-size: 3.5em; /* Tamaño para pantallas grandes */
             margin-bottom: 30px;
             color: #a37e58;
         }
@@ -84,19 +84,18 @@
 
         #countdown span {
             display: block;
-            font-size: 2.5em;
+            font-size: 2.5em; /* Tamaño para pantallas grandes */
             font-weight: 500;
         }
 
         #countdown small {
             font-size: 1em;
-            opacity: 0.8;
         }
 
         /* --- DETALLES DEL EVENTO --- */
         .event-details {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Esto permite que las tarjetas se apilen en pantallas pequeñas */
             justify-content: center;
             gap: 40px;
             margin-top: 40px;
@@ -108,6 +107,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             width: 300px;
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
         }
 
         .event-card h3 {
@@ -149,7 +149,7 @@
             color: #a37e58;
         }
         
-        /* --- NUEVO: ESTILOS PARA EL BOTÓN DE MÚSICA --- */
+        /* --- ESTILOS PARA EL BOTÓN DE MÚSICA --- */
         #music-toggle-btn {
             position: fixed;
             bottom: 20px;
@@ -172,6 +172,42 @@
 
         #music-toggle-btn:hover {
             background-color: #8c6b4a;
+        }
+
+        /*
+        =====================================================================
+        NUEVO: ESTILOS RESPONSIVOS PARA MÓVILES (PANTALLAS DE 768px O MENOS)
+        =====================================================================
+        */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 4em; /* Reducimos el título principal */
+            }
+
+            .hero-content p {
+                font-size: 1.2em; /* Reducimos el subtítulo */
+            }
+
+            .section h2 {
+                font-size: 2.8em; /* Reducimos los títulos de sección */
+            }
+
+            .section {
+                padding: 40px 15px; /* Menos espacio en los costados */
+            }
+
+            #countdown span {
+                font-size: 2em; /* Números del contador más pequeños */
+            }
+            
+            #countdown div {
+                min-width: 60px; /* Cajas del contador más pequeñas */
+                padding: 10px;
+            }
+
+            .event-card {
+                width: 100%; /* La tarjeta ocupa todo el ancho disponible */
+            }
         }
 
     </style>
@@ -212,7 +248,7 @@
                     <p><strong>Hora:</strong> 18:00</p>
                     <p><strong>Lugar:</strong> Nuestra Casa</p>
                     <p>B. Las Piedades, SCZ</p>
-                    <a href="https://maps.google.com/?q=..." target="_blank" class="button">Ver en Mapa</a>
+                    <a href="http://googleusercontent.com/maps.google.com/4" target="_blank" class="button">Ver en Mapa</a>
                 </div>
             </div>
         </section>
@@ -255,7 +291,7 @@
             }
         }, 1000);
         
-        // --- NUEVO: CÓDIGO PARA EL REPRODUCTOR DE MÚSICA ---
+        // --- CÓDIGO PARA EL REPRODUCTOR DE MÚSICA ---
         window.addEventListener('load', () => {
             const music = document.getElementById('background-music');
             const musicBtn = document.getElementById('music-toggle-btn');
@@ -264,15 +300,14 @@
             musicBtn.addEventListener('click', () => {
                 if (isPlaying) {
                     music.pause();
-                    musicBtn.innerHTML = '🎵'; // Ícono de música (pausado)
+                    musicBtn.innerHTML = '🎵';
                 } else {
                     music.play();
-                    musicBtn.innerHTML = '⏸️'; // Ícono de pausa (reproduciendo)
+                    musicBtn.innerHTML = '⏸️';
                 }
                 isPlaying = !isPlaying;
             });
 
-            // Opcional: para que la música se detenga si el usuario cambia de pestaña
             document.addEventListener('visibilitychange', function() {
                 if (document.hidden && isPlaying) {
                     music.pause();
