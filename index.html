@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Alex & Meli</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif; /* Fuente base para el texto */
+            background-color: #f0f0f0;
+            color: #444;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+        }
+
+        /* --- CONTENEDOR PRINCIPAL Y FONDO --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            /* CAMBIA ESTA URL por la de tu foto de fondo */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efecto parallax */
+        }
+
+        .hero-content h1 {
+            font-family: 'Dancing Script', cursive; /* Fuente elegante para los nombres */
+            font-size: 6em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        /* --- SECCIONES DE CONTENIDO --- */
+        .section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            color: #a37e58;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* --- CONTADOR REGRESIVO --- */
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        #countdown div {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            min-width: 80px;
+            border: 1px solid #fff;
+        }
+
+        #countdown span {
+            display: block;
+            font-size: 2.5em;
+            font-weight: 500;
+        }
+
+        #countdown small {
+            font-size: 1em;
+            opacity: 0.8;
+        }
+
+        /* --- DETALLES DEL EVENTO --- */
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .event-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 300px;
+        }
+
+        .event-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 1.8em;
+            color: #a37e58;
+            margin-top: 0;
+        }
+
+        /* --- BOTONES --- */
+        .button {
+            display: inline-block;
+            background-color: #a37e58;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #8c6b4a;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: #ccc;
+        }
+
+        footer h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            margin: 0;
+            color: #a37e58;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Alex & Meli</h1>
+            <p>Guardá la Fecha: 28 de Diciembre de 2024</p>
+
+            <div id="countdown">
+                <div><span id="days"></span><small>Días</small></div>
+                <div><span id="hours"></span><small>Horas</small></div>
+                <div><span id="minutes"></span><small>Minutos</small></div>
+                <div><span id="seconds"></span><small>Segundos</small></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>¡Nos Casamos!</h2>
+            <p>Después de tantos momentos juntos, hemos decidido dar el siguiente paso. Queremos que seas parte de nuestro día más especial, un día lleno de amor, risas y felicidad. ¡Tu presencia es el mejor regalo!</p>
+        </section>
+
+        <section class="section" style="background-color: #fafafa;">
+            <h2>Detalles del Evento</h2>
+            <div class="event-details">
+                <div class="event-card">
+                    <h3>Ceremonia</h3>
+                    <p><strong>Día:</strong> 28 de Diciembre, 2024</p>
+                    <p><strong>Hora:</strong> 17:00</p>
+                    <p><strong>Lugar:</strong> Iglesia de la Merced</p>
+                    <p>Calle Falsa 123, Ciudad</p>
+                    <a href="https://www.google.com/maps" target="_blank" class="button">Ver en Mapa</a>
+                </div>
+                <div class="event-card">
+                    <h3>Recepción</h3>
+                    <p><strong>Día:</strong> 28 de Diciembre, 2024</p>
+                    <p><strong>Hora:</strong> 20:00</p>
+                    <p><strong>Lugar:</strong> Salón "Los Tajibos"</p>
+                    <p>Avenida Siempreviva 742, Ciudad</p>
+                    <a href="https://www.google.com/maps" target="_blank" class="button">Ver en Mapa</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Mesa de Regalos</h2>
+            <p>Para nosotros, tu compañía es lo más importante. Si aún así deseas hacernos un obsequio, puedes hacerlo a través de un depósito en nuestra cuenta o en el buzón que tendremos en la fiesta.</p>
+            <p><strong>Banco:</strong> Mi Banco Fácil<br><strong>Nº de Cuenta:</strong> 123-456789-00</p>
+        </section>
+    </main>
+
+    <footer>
+        <h3>¡Te esperamos!</h3>
+    </footer>
+
+
+    <script>
+        // --- CONFIGURA LA FECHA DE TU BODA AQUÍ ---
+        const weddingDate = new Date("December 28, 2024 17:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            // Cálculos de tiempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Mostrar el resultado en los elementos
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+
+            // Si la cuenta atrás termina
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "¡Llegó el gran día!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
