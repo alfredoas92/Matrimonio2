@@ -237,6 +237,10 @@
 
     <main>
         <section class="section">
+             <div id="guest-welcome" class="welcome-guest">
+                <h3 id="guest-name"></h3>
+            </div>
+
             <h2>¡Nos Casamos!</h2>
             <p>Después de tantos momentos juntos, hemos decidido dar el siguiente paso. Queremos que seas parte de nuestro día más especial, un día lleno de amor, risas y felicidad. ¡Tu presencia es el mejor regalo!</p>
         </section>
@@ -253,9 +257,14 @@
             <h2>Pases</h2>
             <div class="event-details">
                 <div class="event-card">
-                    <p>Hemos reservado</p>
+
+                    <div id="passes-container" class="passes-info">
+                        <p id="passes-text"></p>
+                    </div>
+
+                    <!-- <p>Hemos reservado</p>
                     <h3>2</h3>
-                    <p><strong>Pases para ti</strong></p>                   
+                    <p><strong>Pases para ti</strong></p>                    -->
                 </div>
             </div>
         </section>
@@ -311,7 +320,7 @@
 
     <script>
         // --- CÓDIGO DEL CONTADOR REGRESIVO ---
-        const weddingDate = new Date("August 23, 2025 18:00:00").getTime();
+        //const weddingDate = new Date("August 23, 2025 18:00:00").getTime();
 
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
@@ -357,6 +366,45 @@
             });
         });
 
+    </script>
+
+
+<script>
+        // --- CÓDIGO DEL CONTADOR REGRESIVO (sin cambios) ---
+        const weddingDate = new Date("August 23, 2025 18:00:00").getTime();
+        // ... (el resto del código del contador sigue aquí)
+
+        // --- CÓDIGO DEL REPRODUCTOR DE MÚSICA (sin cambios) ---
+        // ... (el código del reproductor sigue aquí)
+
+        // --- NUEVO: CÓDIGO PARA PERSONALIZAR LA PÁGINA ---
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const invitado = urlParams.get('invitado');
+            const pases = urlParams.get('pases');
+
+            if (invitado) {
+                const guestWelcomeDiv = document.getElementById('guest-welcome');
+                const guestNameH3 = document.getElementById('guest-name');
+                
+                // Decodifica el nombre por si tiene espacios o caracteres especiales
+                guestNameH3.textContent = `¡Hola, ${decodeURIComponent(invitado)}!`;
+                guestWelcomeDiv.style.display = 'block'; // Muestra el saludo
+            }
+
+            if (pases) {
+                const passesContainerDiv = document.getElementById('passes-container');
+                const passesTextP = document.getElementById('passes-text');
+                const pasesNum = parseInt(pases, 10);
+
+                if (pasesNum === 1) {
+                    passesTextP.textContent = `Tienes 1 pase válido para este evento.`;
+                } else {
+                    passesTextP.textContent = `Tienen ${pasesNum} pases válidos para este evento.`;
+                }
+                passesContainerDiv.style.display = 'block'; // Muestra la info de pases
+            }
+        });
     </script>
 
 </body>
